@@ -50,7 +50,7 @@ for dataset in data_dir_list:
 		x = np.expand_dims(x, axis=0)
 		x = preprocess_input(x)
 #		x = x/255
-		print('Input image shape:', x.shape)
+		#print('Input image shape:', x.shape)
 		img_data_list.append(x)
 
 img_data = np.array(img_data_list)
