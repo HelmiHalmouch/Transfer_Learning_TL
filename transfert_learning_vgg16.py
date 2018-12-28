@@ -160,7 +160,7 @@ custom_vgg_model2.compile(loss='categorical_crossentropy',optimizer='rmsprop',me
 
 t=time.time()
 #	t = now()
-hist = custom_vgg_model2.fit(X_train, y_train, batch_size=32, epochs=1, verbose=1, validation_data=(X_test, y_test))  # if we have valdation set we can repalce (X_test, y_test) by (X_validation, y_validation)
+hist = custom_vgg_model2.fit(X_train, y_train, batch_size=32, epochs=3, verbose=1, validation_data=(X_test, y_test))  # if we have valdation set we can repalce (X_test, y_test) by (X_validation, y_validation)
 print('Training time: %s' % (t - time.time()))
 (loss, accuracy) = custom_vgg_model2.evaluate(X_test, y_test, batch_size=10, verbose=1)
 
@@ -181,7 +181,7 @@ train_loss=hist.history['loss']
 val_loss=hist.history['val_loss']
 train_acc=hist.history['acc']
 val_acc=hist.history['val_acc']
-xc=range(1)
+xc=range(3)
 
 
 plt.figure(1,figsize=(7,5))
