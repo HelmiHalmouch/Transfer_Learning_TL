@@ -173,7 +173,7 @@ print("Saved model to disk")
 # save the mode to json file
 model_json = custom_vgg_model2.to_json()
 with open("custom_vgg_model2.json", "w") as json_file:
-    json_file.write(custom_vgg_model2)
+    json_file.write(model_json)
 
 #%%
 import matplotlib.pyplot as plt
