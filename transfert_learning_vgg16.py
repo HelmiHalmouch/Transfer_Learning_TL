@@ -139,7 +139,7 @@ image_input = Input(shape=(224, 224, 3))
 
 model = VGG16(input_tensor=image_input, include_top=True,weights='imagenet')
 
-model.summary()
+#model.summary()
 
 last_layer = model.get_layer('block5_pool').output
 x= Flatten(name='flatten')(last_layer)
@@ -160,7 +160,7 @@ custom_vgg_model2.compile(loss='categorical_crossentropy',optimizer='rmsprop',me
 
 t=time.time()
 #	t = now()
-hist = custom_vgg_model2.fit(X_train, y_train, batch_size=32, epochs=3, verbose=1, validation_data=(X_test, y_test))  # if we have valdation set we can repalce (X_test, y_test) by (X_validation, y_validation)
+hist = custom_vgg_model2.fit(X_train, y_train, batch_size=32, epochs=10, verbose=1, validation_data=(X_test, y_test))  # if we have valdation set we can repalce (X_test, y_test) by (X_validation, y_validation)
 print('Training time: %s' % (t - time.time()))
 (loss, accuracy) = custom_vgg_model2.evaluate(X_test, y_test, batch_size=10, verbose=1)
 
@@ -168,12 +168,13 @@ print("[INFO] loss={:.4f}, accuracy: {:.4f}%".format(loss,accuracy * 100))
 
 #save the model to h5
 custom_vgg_model2.save_weights("custom_vgg_model2.h5")
-print("Saved model to disk")
+print("Saved model .h5 to disk")
 
 # save the mode to json file
 model_json = custom_vgg_model2.to_json()
 with open("custom_vgg_model2.json", "w") as json_file:
     json_file.write(model_json)
+print("Saved model json to disk")
 
 #%%
 # visualizing losses and accuracy
@@ -181,10 +182,10 @@ train_loss=hist.history['loss']
 val_loss=hist.history['val_loss']
 train_acc=hist.history['acc']
 val_acc=hist.history['val_acc']
-xc=range(3)
+xc=range(10)
 
-
-plt.figure(1,figsize=(7,5))
+# Plot train_loss vs val_loss
+plt.figure(1,figsize=(5,5))
 plt.plot(xc,train_loss)
 plt.plot(xc,val_loss)
 plt.xlabel('num of Epochs')
@@ -193,9 +194,10 @@ plt.title('train_loss vs val_loss')
 plt.grid(True)
 plt.legend(['train','val'])
 plt.style.use(['classic'])
-plt.savefig("Training_result_custom_TL2.png")
+plt.savefig("Fig_train_loss_vs_val_loss.png")
 
-plt.figure(2,figsize=(7,5))
+#Plot train_acc vs val_acc
+plt.figure(2,figsize=(5,5))
 plt.plot(xc,train_acc)
 plt.plot(xc,val_acc)
 plt.xlabel('num of Epochs')
@@ -204,5 +206,5 @@ plt.title('train_acc vs val_acc')
 plt.grid(True)
 plt.legend(['train','val'],loc=4)
 plt.style.use(['classic'])
-plt.savefig("Training_result2_custom_TL2.png")
+plt.savefig("Fig_train_acc_vs_val_acc.png")
 plt.show()
