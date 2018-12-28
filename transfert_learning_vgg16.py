@@ -176,13 +176,12 @@ with open("custom_vgg_model2.json", "w") as json_file:
     json_file.write(model_json)
 
 #%%
-import matplotlib.pyplot as plt
 # visualizing losses and accuracy
 train_loss=hist.history['loss']
 val_loss=hist.history['val_loss']
 train_acc=hist.history['acc']
 val_acc=hist.history['val_acc']
-xc=range(12)
+xc=range(1)
 
 
 plt.figure(1,figsize=(7,5))
