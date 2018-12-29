@@ -13,6 +13,11 @@ The dataset are in this path : Transfert_Learning_using_Resnet50/data.zip <br/>
 In the case oF TL using vgg16 architecture (with fine tuning):<br>
 		-Training time is arround 73 minutes <br/>
 		-loss=0.3300, accuracy: 97.5309% <br/>
-		-The analysis of the training, loss, and validation as function of epoch numberare in: <br/>
-		Fig_train_loss_vs_val_loss.png and Fig_train_acc_vs_val_acc.png (see folder analysis_results)
+
+In the case oF TL using resnet50 architecture (with fine tuning):<br>
+		-Training time is arround 37 minutes <br/>
+		-loss=0.1147, accuracy: 96.9136% <br/>
+
+-The analysis of the training, loss, and validation as function of epoch numberare in: <br/>
+Fig_train_loss_vs_val_loss.png and Fig_train_acc_vs_val_acc.png (see folder analysis_results)
 

@@ -142,7 +142,7 @@ print("Saved model .h5 to disk")
 
 # save the mode to json file
 model_json = custom_resnet_model2.to_json()
-with open("custom_vgg_model2.json", "w") as json_file:
+with open("custom_resnet50_model2.json", "w") as json_file:
     json_file.write(model_json)
 print("Saved model json to disk")
 
