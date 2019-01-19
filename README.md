@@ -19,5 +19,5 @@ In the case oF TL using resnet50 architecture (with fine tuning):<br>
 		-loss=0.1147, accuracy: 96.9136% <br/>
 
 -The analysis of the training, loss, and validation as function of epoch numberare in: <br/>
-Fig_train_loss_vs_val_loss.png and Fig_train_acc_vs_val_acc.png (see folder analysis_results)
-
+Fig_train_loss_vs_val_loss.png and Fig_train_acc_vs_val_acc.png (see folder analysis_results) <br/>
+- We should improve the computing time in the training step by using GPU
